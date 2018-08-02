@@ -25,6 +25,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="userInputChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="e7p-aO-ggd"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="miles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkC-Aj-htZ">
                                 <rect key="frame" x="256" y="64" width="103" height="24"/>
@@ -62,7 +65,7 @@
                                     <action selector="convertButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4uw-V3-jaT"/>
                                 </connections>
                             </button>
-                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kmu-LP-9Sb">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Kmu-LP-9Sb">
                                 <rect key="frame" x="16" y="61" width="32" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="2cr-V6-HHO"/>
@@ -73,9 +76,25 @@
                                     <segment title="-"/>
                                 </segments>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="signSegmentSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="fA4-9H-uHM"/>
+                                </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXz-M1-wcX">
+                                <rect key="frame" x="16" y="98" width="343" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="9xc-e8-E3c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbm-La-9Tl">
+                                <rect key="frame" x="16" y="193" width="343" height="234"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pickerView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cV7-sY-Uc2">
-                                <rect key="frame" x="43.333333333333343" y="444" width="288.33333333333326" height="28"/>
+                                <rect key="frame" x="43.333333333333343" y="442" width="288.33333333333326" height="28"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rounding:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WH2-3c-pL2">
                                         <rect key="frame" x="0.0" y="0.0" width="77.333333333333329" height="28"/>
@@ -102,19 +121,6 @@
                                     <constraint firstAttribute="width" constant="288.32999999999998" id="N6J-1t-OGk"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXz-M1-wcX">
-                                <rect key="frame" x="16" y="98" width="343" height="52"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="9xc-e8-E3c"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbm-La-9Tl">
-                                <rect key="frame" x="16" y="193" width="343" height="231"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -130,8 +136,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7ZG-lV-PyA" secondAttribute="bottom" constant="270" id="PdY-Ia-JXB"/>
                             <constraint firstItem="Skd-2d-M5p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QKj-P4-pzG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YkC-Aj-htZ" secondAttribute="trailing" constant="16" id="Xef-TS-DKa"/>
-                            <constraint firstItem="7ZG-lV-PyA" firstAttribute="top" secondItem="cV7-sY-Uc2" secondAttribute="bottom" constant="6" id="eEw-HC-NbK"/>
-                            <constraint firstItem="cV7-sY-Uc2" firstAttribute="top" secondItem="cbm-La-9Tl" secondAttribute="bottom" constant="20" id="h5X-oG-OYi"/>
+                            <constraint firstItem="7ZG-lV-PyA" firstAttribute="top" secondItem="cV7-sY-Uc2" secondAttribute="bottom" constant="8" id="eEw-HC-NbK"/>
+                            <constraint firstItem="cV7-sY-Uc2" firstAttribute="top" secondItem="cbm-La-9Tl" secondAttribute="bottom" constant="15" id="h5X-oG-OYi"/>
                             <constraint firstItem="YkC-Aj-htZ" firstAttribute="leading" secondItem="BzN-sT-w5J" secondAttribute="trailing" constant="8" id="ptw-Bb-fzr"/>
                             <constraint firstItem="BzN-sT-w5J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="qaR-Do-6UQ"/>
                             <constraint firstItem="7ZG-lV-PyA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qwj-wC-jyx"/>
@@ -146,6 +152,7 @@
                         <outlet property="formulaPicker" destination="cbm-La-9Tl" id="kTj-5L-smt"/>
                         <outlet property="fromUnitsLabel" destination="YkC-Aj-htZ" id="7YZ-uD-IdZ"/>
                         <outlet property="resultsLabel" destination="dXz-M1-wcX" id="hd2-XA-Thg"/>
+                        <outlet property="signSegment" destination="Kmu-LP-9Sb" id="BgE-ME-sJA"/>
                         <outlet property="userInput" destination="BzN-sT-w5J" id="3bM-5A-fZC"/>
                     </connections>
                 </viewController>
